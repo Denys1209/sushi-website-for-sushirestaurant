@@ -15,6 +15,7 @@ export async function POST(body: Request) {
   if (user.status == 200) {
     const accessToken = signJwtAccessToken(user.data);
     const result = {
+      
       accessToken,
       ...user.data,
     };

@@ -22,10 +22,10 @@ class OrderService extends Service {
 
  async createOrder(userId: number | null, dishesId: number[], dishesQuantity: number[], dto: CreateOrderDto): Promise<AxiosResponse> {
    if (userId == null){
-      return this.axiosInstance.post(`createOrder?dishesId=${dishesId.join(',')}&dishesQuantity=${dishesQuantity.join(',')}`, dto);
+      return this.axiosInstance.post(`createOrder?dishesId=${dishesId.join('&dishesId=')}&dishesQuantity=${dishesQuantity.join('&dishesQuantity=')}`, dto);
    }
    else{
-      return this.axiosInstance.post(`createOrder?userId=${userId}&dishesId=${dishesId.join(',')}&dishesQuantity=${dishesQuantity.join(',')}`, dto);
+      return this.axiosInstance.post(`createOrder?userId=${userId}&dishesId=${dishesId.join('&dishesQuantity=')}&dishesQuantity=${dishesQuantity.join('&dishesQuantity=')}`, dto);
    }
  }
 
